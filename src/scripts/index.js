@@ -25,7 +25,8 @@ initGame();
 
 setInterval(() => {
   ysdk.adv.showFullscreenAdv();
-}, 35000);
+}, 20000);
+
 
   const cards = document.querySelectorAll(".memory-card");
 
