@@ -1,2 +1,1 @@
-# slovopatsana
-yandex game
+# garmony_ms
