@@ -157,6 +157,10 @@ body {
 
 
 @media (max-width: 600px) {
+    #popup_1, #popup_2 {
+        margin: 24px 0;
+    }
+
     .main_menu  {
         padding: 0 16px;
     }

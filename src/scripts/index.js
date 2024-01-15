@@ -8,27 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var audio = document.getElementById('backgroundMusic');
 
-        // Проверяем поддержку Audio API в браузере
-        if (audio.canPlayType) {
-            // Указываем путь к вашему аудиофайлу
-            audio.src = '../public/Аигел - Пыяла.mp3';
-            // Включаем автоматическое воспроизведение
-            audio.autoplay = true;
-            // Включаем зацикливание воспроизведения
-            audio.loop = true;
-            audio.volume = 0.3;
-        }
-
-        document.querySelector('.stopButton').addEventListener('click', (e) => {
-          audio.pause();
-          document.querySelector('.stopButton').style.display = 'none';
-          document.querySelector('.playButton').style.display = 'block';
-        });
-        document.querySelector('.playButton').addEventListener('click', (e) => {
-          audio.play();
-          document.querySelector('.stopButton').style.display = 'block';
-          document.querySelector('.playButton').style.display = 'none';
-        });
+  document.querySelector('.stopButton').addEventListener('click', (e) => {
+    audio.pause();
+    audio.loop = true;
+      audio.volume = 0.3;
+    document.querySelector('.stopButton').style.display = 'none';
+    document.querySelector('.playButton').style.display = 'block';
+  });
+  document.querySelector('.playButton').addEventListener('click', (e) => {
+    audio.play();
+    document.querySelector('.stopButton').style.display = 'block';
+    document.querySelector('.playButton').style.display = 'none';
+  });
 
 
 let ysdk;
@@ -52,8 +43,9 @@ initGame();
   let i = 0;
   let n = 0;
   let play = false;
-  const gameOverAudio = new Audio('../public/gameOverAudio.mp3');
-  const winAudio = new Audio('../public/winAudio.mp3');
+  let gameOverAudio = document.getElementById('loseMusic');
+  let winAudio = document.getElementById('winMusic');
+
 
   const cards = document.querySelectorAll(".memory-card");
 
@@ -76,8 +68,8 @@ initGame();
     }
 
     if(!play) {
-      if(!audio.onplay)
       audio.play();
+      audio.loop = true;
       audio.volume = 0.3;
       play = true;
     }
@@ -134,7 +126,6 @@ initGame();
       let num = document.querySelector('.num').textContent * 1; 
       let all_healf = document.querySelector('.all_healf').textContent * 1;
 
-      console.log(all_healf, " ", n)
 
       if(n == all_healf){
         gameOverAudio.play();
